@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturers Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meet Our Lecturers</h1>
+        <div class="lecturers">
+            <!-- Lecturer 1 -->
+            <div class="lecturer">
+                <img src="bulo.jpeg" height="400" alt="Lecturer 1">
+                <p>Dr. N Ntaho</p>
+                <a href="https://wa.me/+27659174609" class="contact-button" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <!-- Lecturer 2 -->
+            <div class="lecturer">
+                <img src="dube.jpeg" alt="Lecturer 2">
+                <p>Prof. A Dube</p>
+                <a href="https://wa.me/+27835972972" class="contact-button" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <!-- Lecturer 3 -->
+            <div class="lecturer">
+                <img src="mini.jpeg" alt="Lecturer 3">
+                <p>Dr. M Nxumalo</p>
+                <a href="https://wa.me/+27676751920" class="contact-button" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <!-- Lecturer 4 -->
+            <div class="lecturer">
+                <img src="buhle.jpeg" alt="Lecturer 4">
+                <p>Prof. N Nkosi</p>
+                <a href="https://wa.me/+27769754033" class="contact-button" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <!-- Lecturer 5 -->
+            <div class="lecturer">
+                <img src="mj.jpeg" alt="Lecturer 5">
+                <p>Dr. L Mjobo</p>
+                <a href="https://wa.me/+27656878616" class="contact-button" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <!-- Lecturer 6 -->
+            <div class="lecturer">
+                <img src="li.jpeg" alt="Lecturer 6">
+                <p>Prof. L Mkhize</p>
+                <a href="https://wa.me/+27814442176" class="contact-button" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <!-- Lecturer 7 -->
+            
+        </div>
+    </div>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+ background-image: url(h.jpg);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-image: url(h1.jpg);
+   
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.lecturers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.lecturer {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 15px;
+    width: calc(100% / 3 - 40px); /* Adjust width for 3 columns */
+    box-sizing: border-box;
+}
+
+.lecturer img {
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+}
+
+.lecturer p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #25D366; /* WhatsApp green color */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #128C7E;
+}
+
+    </style>
+</body>
+</html>
