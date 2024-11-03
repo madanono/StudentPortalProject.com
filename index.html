@@ -1,0 +1,351 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, intial-scale=1.0">
+<title>Bct</title>
+<link rel="stylesheet" href="css/style.css"/>
+<!--fav-icon-->
+<link rel="shortcut icon" href="images/favicon.png"/>
+<style>
+    /* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    width: 400px;
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+    
+    <section class="main" style="background-image: url(images/hero-bg.png);">
+        
+        <nav>
+            <a href="#" class="logo">
+                <img src="images/logo.png" width="320px" />
+            </a>
+            <input class="menu-btn" type="checkbox" id="menu-btn"/>
+            <label class="menu-icon" for="menu-btn">
+                <span class="nav-icon"></span>
+            </label>
+            <ul class="menu" style="border-radius: 5px;">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Le.html">Career Counsellors</a></li>
+                <li><a href="generic.html">History</a></li>
+                <li><a href="marks.html">Result</a></li>
+                <li><a href="database.html">Register</a></li>
+                <li><a href="Duration.html">Course Duration</a></li>
+            </ul>
+        </nav>
+       
+        <!-- login modal start -->
+        <div id="id01" class="modal">
+  
+            <form class="modal-content animate" action="/action_page.php" method="post" style="
+            width: 400px;
+        ">
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <p style="font-size: 22px;">Student Login </p>
+                <hr>
+              </div>
+          
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+          
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                  
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+          
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw"><a href="#">Register Here</a></span>
+                <span class="psw" style="margin-right: 11px;"><a href="#laaaaa">Forgot  password?</a></span>
+              </div>
+            </form>
+          </div>
+        <!-- login modal qend  -->
+
+
+        <!--main-content-->
+        <div class="home-content">
+            
+            <!--text-->
+            <div class="home-text" >
+                
+                <h3 style="color: white; letter-spacing: 3px;">Welcome to Berea College of Technology </h3>
+                <h1 style="color: white;"> Student Portal</h1>
+                
+                    <p style="color: white;">A student portal is a vital online platform designed to enhance the educational experience by facilitating communication, access to resources, and engagement among students, faculty, and administrative staff within educational institutions. By consolidating various academic and administrative functions into one centralized system, student portals provide a range of benefits that contribute significantly to students' academic success and overall well-being
+                     </p>
+            <!--login-btn-->
+            <a href="https://wa.me/+27659174608" class="main-login" style="border-radius: 5px;">WhatsApp Us</a>
+            </div>
+            <!--img-->
+            <div class="home-img" style="width: 500px;">
+                <img src="images/hero.jpg" width="500px" style="text-shadow: 20px 22px;"/>
+                <marquee width="100%" direction="left" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                    <a href="#" style="color: white;">2025 Registration Is Open,Your future Start Here.</a>
+                    </marquee>
+                    <marquee width="100%" direction="right" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                    <a href="#" style="color: white;">Vist our Campus For More Information @ 160 Monty Naicker Rd, Durban Central, Durban, 4001.</a>
+                    </marquee>
+            </div>
+            
+        </div>
+        
+        <!--arrow-->
+        <div class="arrow"></div>
+        <span class="scroll">Scroll</span>
+    </section>
+    <center>    <h1 style="color: blue;"> 2025 REGISTRATION IS OPEN!!!</h1>
+    </center>
+    <div class="row">
+      <div class="column">
+        
+       <center>
+        <img src="w1.jpeg" width="450" >
+        <img src="w2.jpeg" width="450">
+        <img src="w3.jfif" width="450" height="638">
+        <img src="w4.jpeg" width="450" >
+        <img src="w5.jpeg" width="450"height="638">
+        <img src="w6.jpeg" width="450">
+       </center>
+      </div>
+      
+        <center><a href="Apply.html" class="main-login"style="border-radius: 5px;">Apply Now</a></center>
+    <!--services----------------------->
+    <section class="services">
+        <!--heading----------->
+        <div class="services-heading">
+            <h2>OUR PROFESSIONAL COURSES</h2>
+            <p> At Berea College of Technology, we offer a diverse range of professional courses designed to equip students with practical skills and knowledge needed to excel in today’s dynamic job market. Our programs focus on hands-on learning and industry relevance, including areas such as Business Administration, Information Technology, Healthcare, Engineering and Technology, Hospitality and Tourism Management, and Creative Arts and Design. With experienced faculty, opportunities for internships, and access to career services, we are committed to providing an affordable education through our no-tuition policy. Explore our professional courses and take the first step toward a successful career at Berea College of Technology!</p>
+
+        </div>
+        <!--box-container----------------->
+        <div class="box-container">
+            <!--box-1-------->
+            <div class="box">
+                <img src="in.jfif">
+                <font>Information Technology</font>
+                <p>Information Technology (IT) is a broad field that encompasses the use of computers, software, networks, and systems to manage and process information</p>
+                <!--btn--------->
+                <a href="https://wa.me/+27835972972">WhatsApp Us</a>
+                <font>A.Dube</font>
+            </div>
+            <!--box-2-------->
+            <div class="box">
+                <img src="in2.jfif">
+                <font>Batchlor of Business Administration</font>
+                <p>A Bachelor of Business Administration (BBA) is an undergraduate degree that provides students with a comprehensive understanding of business principles and practices.</p>
+                <!--btn--------->
+                <a href="https://wa.me/+27835972972">WhatsApp Us</a>
+                <font>A.Dube</font>
+            </div>
+            <!--box-3-------->
+            <div class="box">
+                <img src="in3.jfif">
+                <font>Bio-Technology</font>
+                <p>Biotechnology is a multidisciplinary field that leverages biological systems, organisms, or derivatives to develop products and technologies that improve health, agriculture, and environmental sustainability</p>
+                <!--btn--------->
+                <a href="https://wa.me/+27659174609">WhatsApp Us</a>
+                <font>N.Ntaho</font>
+            </div>
+            <!--box-4-------->
+            <div class="box">
+                <img src="in4.jfif">
+                <font>Computer Science</font>
+                <p>Biotechnology is a multidisciplinary field that leverages biological systems, organisms, or derivatives to develop products and technologies that improve health, agriculture, and environmental sustainability.</p>
+                <!--btn--------->
+                <a href="https://wa.me/+27659174609">WhatsApp Us</a>
+                <font>N.Ntaho</font>
+            </div>
+            <!--box-1-------->
+            
+        </div>
+    </section>
+    <div class="box-container">
+      <!--box-1-------->
+      <div class="box">
+          <img src="s.jfif">
+          <font>Cybersecurity</font>
+          <p>Cybersecurity is a critical field focused on protecting systems, networks, and data from cyber threats. As technology evolves, so do the tactics used by cybercriminals, making cybersecurity increasingly important across all sectors. Here’s an overview of key aspects of cybersecurity</p>
+          <!--btn--------->
+          <a href="https://wa.me/+27769754033">WhatsApp Us</a>
+          <font>N.Nkosi</font>
+      </div>
+      <!--box-2-------->
+      <div class="box">
+          <img src="m.webp">
+          <font>Medicine</font>
+          <p>
+            Medicine is a vast and evolving field focused on the diagnosis, treatment, and prevention of disease and injury. It encompasses various specialties and subspecialties, and it increasingly intersects with technology and research. Here’s an overview of key aspects of medicine.</p>
+          <!--btn--------->
+          <a href="https://wa.me/+27656878616">WhatsApp Us</a>
+          <font>L.Mjobo</font>
+      </div>
+      <!--box-3-------->
+      <div class="box">
+          <img src="e.jfif">
+          <font>Computer Engineering</font>
+          <p>Computer engineering is a dynamic field that combines principles of electrical engineering and computer science to develop computer systems and their components. Here’s an overview of key aspects of computer engineering</p>
+          <!--btn--------->
+          <a href="https://wa.me/+27676751920">WhatsApp Us</a>
+          <font>N.Minenhle</font>
+      </div>
+      <!--box-4-------->
+      <div class="box">
+          <img src="c.webp">
+          <font>Civil Engineering</font>
+          <p>Civil engineering is a broad and dynamic field that encompasses the planning, design, construction, and maintenance of infrastructure. Here are some key aspects of civil engineering.</p>
+          <!--btn--------->
+          <a href="https://wa.me/+27656878616">Apply Now</a>
+          <font>L.Mjobo</font>
+      </div>
+      <!--box-1-------->
+      
+  </div>
+</section>
+    
+    <!--footer------------->
+    <footer>
+        <p>2024 | Developed By <a href="https://l.wl.co/l?u=https%3A%2F%2Fmadanono.github.io%2FAboutNdano.co.za%2F">BCT Final Year students </a> </p>
+    </footer>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        </script>
+</body>
+
+</html>
