@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Application Form</title>
+    <style>
+        body {
+            background: url(bct.png) no-repeat center center fixed; background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: wheat;
+            margin-top: 20px;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #0044cc;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0033aa;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .message {
+            display: none;
+            font-size: 16px;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Application Form</h1>
+    <form id="applicationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required><br>
+
+        <label for="id_number">ID Number (13 digits):</label>
+        <input type="text" id="id_number" name="id_number" pattern="\d{13}" title="Please enter a 13-digit ID number" required><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea><br>
+
+        <label for="subject">Choose Subject:</label>
+        <select id="subject" name="subject" required>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+        </select><br>
+
+        <input type="submit" value="Apply">
+    </form>
+    <p id="responseMessage" class="message">Thank you for applying. Please wait for 3 to 5 working days for further communication.</p>
+
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const idNumber = document.getElementById('id_number').value;
+            const address = document.getElementById('address').value;
+            const subject = document.getElementById('subject').value;
+            
+            // Construct email body
+            const emailBody = `Name: ${name}%0A` +
+                              `Surname: ${surname}%0A` +
+                              `ID Number: ${idNumber}%0A` +
+                              `Address: ${address}%0A` +
+                              `Subject: ${subject}`;
+            
+            // Create a mailto link
+            const mailtoLink = `mailto:your-email@example.com?subject=New Student Application&body=${emailBody}`;
+            
+            // Open the default mail client with the mailto link
+            window.location.href = mailtoLink;
+            
+            // Show confirmation message
+            document.getElementById('responseMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

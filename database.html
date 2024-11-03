@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Registration Portal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url(images/hero.jpg);
+            background-size: cover;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            background-image: url(h.jfif);
+            background-size: cover;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="tel"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student Registration</h2>
+<form id="registrationForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" required min="1">
+
+    <label for="gender">Gender:</label>
+    <select id="gender" required>
+        <option value="">Select gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="race">Race:</label>
+    <input type="text" id="race" required>
+
+    <label for="idNumber">ID Number (13 digits):</label>
+    <input type="text" id="idNumber" required pattern="\d{13}" title="Must be 13 digits">
+
+    <label for="address">Home Address:</label>
+    <input type="text" id="address" required>
+
+    <label for="phone">Cell Phone Number:</label>
+    <input type="tel" id="phone" required pattern="[0-9]{10}" title="Must be 10 digits">
+
+    <label for="course">Course:</label>
+    <select id="course" required>
+        <option value="">Select a course</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Biology">Biology</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Management Communication">Business Communication</option>
+        <option value="Public Relations">Public Relations</option>
+        <option value="Education">Education</option>
+        <option value="Diploma in PC Support and Networking">Diploma in PC Support and Networking</option>
+        <option value="National Certificate in End-User Computing">National Certificate in End-User Computing</option>
+        <option value="Diploma in Accounting">Diploma in Accounting </option>
+        <option value=" Higher Certificate in Travel and Tourism">Higher Certificate in Travel and Tourism </option>
+        <option value="Diploma in Human Resource Management">Diploma in Human Resource Management</option>
+        <option value="Higher Certificate in Hospitality and Catering">Higher Certificate in Hospitality and Catering</option>
+        <option value="National Certificate in Technical Support">National Certificate in Technical Support</option>
+        <option value="Biology">Biology</option>
+        <option value="Biology">Biology</option>
+        <option value="Biology">Biology</option>
+        <option value="Biology">Biology</option>
+        <option value="Biology">Biology</option>
+        <option value="Biology">Biology</option>
+        <option value="Biology">Biology</option>
+    </select>
+    
+    <input type="submit" value="Register">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Race</th>
+            <th>ID Number</th>
+            <th>Home Address</th>
+            <th>Cell Phone Number</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+    <tbody id="studentTableBody">
+        <!-- Student data will be inserted here -->
+    </tbody>
+</table>
+
+<script>
+    // Load existing students from localStorage
+    function loadStudents() {
+        const students = JSON.parse(localStorage.getItem('students')) || [];
+        students.forEach(student => addStudentToTable(student));
+    }
+
+    // Add a student to the table
+    function addStudentToTable(student) {
+        const tableBody = document.getElementById('studentTableBody');
+        const newRow = tableBody.insertRow();
+
+        newRow.insertCell(0).textContent = student.name;
+        newRow.insertCell(1).textContent = student.surname;
+        newRow.insertCell(2).textContent = student.age;
+        newRow.insertCell(3).textContent = student.gender;
+        newRow.insertCell(4).textContent = student.race;
+        newRow.insertCell(5).textContent = student.idNumber;
+        newRow.insertCell(6).textContent = student.address;
+        newRow.insertCell(7).textContent = student.phone;
+        newRow.insertCell(8).textContent = student.course;
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form values
+        const student = {
+            name: document.getElementById('name').value,
+            surname: document.getElementById('surname').value,
+            age: document.getElementById('age').value,
+            gender: document.getElementById('gender').value,
+            race: document.getElementById('race').value,
+            idNumber: document.getElementById('idNumber').value,
+            address: document.getElementById('address').value,
+            phone: document.getElementById('phone').value,
+            course: document.getElementById('course').value
+        };
+
+        // Save to localStorage
+        const students = JSON.parse(localStorage.getItem('students')) || [];
+        students.push(student);
+        localStorage.setItem('students', JSON.stringify(students));
+
+        // Add student to the table
+        addStudentToTable(student);
+
+        // Clear the form fields
+        document.getElementById('registrationForm').reset();
+    });
+
+    // Load students on page load
+    loadStudents();
+</script>
+
+</body>
+</html>
