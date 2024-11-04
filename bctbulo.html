@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bct Student Database Saver</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+    window.onload = function() {
+    loadSavedStudents();
+  };
+  
+  function registerStudent() {
+    const name = document.getElementById("name").value;
+    const surname = document.getElementById("surname").value;
+    const gender = document.getElementById("gender").value;
+    const email = document.getElementById("email").value;
+    const idPassport = document.getElementById("id_passport").value;
+    const course = document.getElementById("course").value;
+    const phone = document.getElementById("phone").value;
+    const race = document.getElementById("race").value || "N/A";
+    const address = document.getElementById("address").value || "N/A";
+  
+    if (idPassport.length !== 13 || phone.length !== 10) {
+      alert("ID/Passport must be 13 digits and phone number 10 digits.");
+      return;
+    }
+  
+    const student = {
+      name, surname, gender, email, idPassport, course, phone, race, address
+    };
+  
+    saveToLocalStorage(student);
+    addStudentToTable(student);
+    sendEmail(student);
+  
+    document.getElementById("studentForm").reset();
+  }
+  
+  function saveToLocalStorage(student) {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.push(student);
+    localStorage.setItem("students", JSON.stringify(students));
+  }
+  
+  function loadSavedStudents() {
+    const students = JSON.parse(localStorage.getItem("students")) || [];
+    students.forEach(student => addStudentToTable(student));
+  }
+  
+  function addStudentToTable(student) {
+    const tableBody = document.getElementById("studentTableBody");
+    const row = tableBody.insertRow();
+  
+    row.insertCell(0).textContent = student.name;
+    row.insertCell(1).textContent = student.surname;
+    row.insertCell(2).textContent = student.gender;
+    row.insertCell(3).textContent = student.email;
+    row.insertCell(4).textContent = student.idPassport;
+    row.insertCell(5).textContent = student.course;
+    row.insertCell(6).textContent = student.phone;
+    row.insertCell(7).textContent = student.race;
+    row.insertCell(8).textContent = student.address;
+  }
+  
+  function sendEmail(student) {
+    alert(`Registration successful! An email confirmation has been sent to ${student.email}.`);
+  }
+  
+  </script>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  .navbar {
+    background-color: #333;
+    padding: 15px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .navbar ul li {
+    margin-right: 15px;
+  }
+  
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar ul li a:hover {
+    color: #ff4d4d;
+  }
+  
+  .form-section {
+    width: 60%;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .form-section h2 {
+    color: #333;
+    text-align: center;
+  }
+  
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  form input:focus, form select:focus, form textarea:focus {
+    border-color: #ff4d4d;
+    outline: none;
+  }
+  
+  .submit-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #ff1a1a;
+  }
+  
+  .student-table-section {
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+  .student-table-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            background-image: url(h.jfif);
+            background-size: cover;
+        }
+
+  
+  @media (max-width: 768px) {
+    .form-section, .student-table-section {
+      width: 90%;
+    }
+  
+    .navbar ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  </style>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Form Section -->
+  <section class="form-section">
+    <h2>Student Registration</h2>
+    <form id="studentForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="id_passport">ID/Passport:</label>
+      <input type="text" id="id_passport" name="id_passport" maxlength="13" required pattern="\d{13}" title="ID must be 13 digits">
+
+      <label for="course">Course:</label>
+      <select id="course" name="course" required>
+        <option value="">Select a Course</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Biology">Biology</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Management Communication">Business Communication</option>
+        <option value="Public Relations">Public Relations</option>
+        <option value="Education">Education</option>
+        <option value="Diploma in PC Support and Networking">Diploma in PC Support and Networking</option>
+        <option value="National Certificate in End-User Computing">National Certificate in End-User Computing</option>
+        <option value="Diploma in Accounting">Diploma in Accounting </option>
+        <option value=" Higher Certificate in Travel and Tourism">Higher Certificate in Travel and Tourism </option>
+        <option value="Diploma in Human Resource Management">Diploma in Human Resource Management</option>
+        <option value="Higher Certificate in Hospitality and Catering">Higher Certificate in Hospitality and Catering</option>
+        <option value="National Certificate in Technical Support">National Certificate in Technical Support</option>
+        <option value="Economics">Economics</option>
+        <option value="Environmental Science">Environmental Science</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Political Science">Political Science</option>
+        <option value="Theatre Arts">Theatre Arts</option>
+        <option value="Mining Engineering">Mining Engineering</option>
+        <option value="Human Resources">Human Resources</option>
+      </select>
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" maxlength="10" required pattern="\d{10}" title="Phone number must be 10 digits">
+
+      <label for="race">Race (Optional):</label>
+      <input type="text" id="race" name="race">
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="3"></textarea>
+
+      <button type="button" class="submit-btn" onclick="registerStudent()">Register</button>
+    </form>
+  </section>
+
+  <!-- Student Table -->
+  <center>
+    <section class="student-table-section">
+        <h2>Registered Students</h2>
+        <table id="studentTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>ID/Passport</th>
+              <th>Course</th>
+              <th>Phone</th>
+              <th>Race</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Rows will be dynamically added here -->
+          </tbody>
+        </table>
+      </section>
+  </center>
+<center>
+    
+  <b><h3>Contact Us</h3></b>
+
+  <form action="mailto:ntahondano49@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="subject">Enter Your Course:</label>
+      <input type="text" id="subject" name="subject" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      
+      <button type="submit">Send Email</button>
+  </form>
+</center>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Student Database Saver. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
