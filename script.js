@@ -2,11 +2,11 @@
 const studentData = {
     "2022030473": { name: "Ndano Ntaho", subjects: { Tp: 88, Wil: 92, Proj: 85,DS: 88,TS: 98 ,BC: 78} },
     "2022030600": { name: "Nobuhle Nkosi", subjects: { Tp: 76, Wil: 84, Proj: 90,DS: 88,TS: 98 ,BC: 78 } },
-    "2022030601": { name: "Lindokuhle Mkhize", subjects: { Tp: 76, Wil: 84, Proj: 90,DS: 88,TS: 98 ,BC: 78} },
-    "2022030602": { name: "Andiswa Dube", subjects: { Tp: 76, Wil: 84, Proj: 90,DS: 88,TS: 98 ,BC: 78 } },
-    "2022030603": { name: "Mthobisi", subjects: { Tp: 76, Wil: 84, Proj: 90 ,DS: 88,TS: 98 ,BC: 78,} },
-    "2022030604": { name: "Lwandle Mjobo", subjects: { Tp: 76, Wil: 84, Proj: 90,DS: 88,TS: 98 ,BC: 78 } },
-    "2022030605": { name: "Minenhle Nxumalo", subjects: { Tp: 76, Wil: 84, Proj: 90 ,DS: 88,TS: 98 ,BC: 78} }
+    "2022030643": { name: "Lindokuhle Mkhize", subjects: { Tp: 76, Wil: 84, Proj: 90,DS: 88,TS: 98 ,BC: 78} },
+    "2022030435": { name: "Andiswa Dube", subjects: { Tp: 76, Wil: 84, Proj: 90,DS: 88,TS: 98 ,BC: 78 } },
+    "2022030446": { name: "Mthobisi", subjects: { Tp: 76, Wil: 84, Proj: 90 ,DS: 88,TS: 98 ,BC: 78,} },
+    "2022030464": { name: "Lwandle Mjobo", subjects: { Tp: 76, Wil: 84, Proj: 90,DS: 88,TS: 98 ,BC: 78 } },
+    "2022030418": { name: "Minenhle Nxumalo", subjects: { Tp: 76, Wil: 84, Proj: 90 ,DS: 88,TS: 98 ,BC: 78} }
 };
 
 function showStudentInfo() {
